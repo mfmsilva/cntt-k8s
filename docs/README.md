@@ -53,6 +53,11 @@ The release cycle of the Charmed Kubernetes (CK) is tightly synchronized to the 
 
 ### Infrastructure flavors
 
+| **Flavor** | **CPU** | **RAM** | **DISK** |
+| :--- | :--- | :--- | :--- |
+| Juju-controller | 8 | 16GB | 500GB |
+| K8s-master | 8 | 16GB | 500GB |
+| K8s-worker | 32 | 64GB | 500GB |
 
 ### Infrastructure roles
 
@@ -113,6 +118,10 @@ Vault does require an additional database to store its data and (depending on co
 The kubernetes-worker charm deploys a container runtime, and additionally stands up the Kubernetes worker applications: kubelet, and kube-proxy.
 Although Docker is still supported, containerd is now the default container runtime in Charmed Kubernetes. Containerd brings significant performance improvements and prepares the way for Charmed Kubernetes integration with Kata in the future.
 Container runtime code has been moved out of the kubernetes-worker charm, and into subordinate charms one for each runtime, This allows the operator to swap the container runtime as desired, and even mix container runtimes within a cluster. It also allows for additional container runtimes to be supported in the future.
+
+### Horizontal Scaling
+
+Charmed Kubernetes supports horizontal autoscaling with [OpenStack integrator](https://ubuntu.com/kubernetes/docs/openstack-integration).
 
 ### Ingress
 
