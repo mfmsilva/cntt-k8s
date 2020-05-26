@@ -53,11 +53,24 @@ The release cycle of the Charmed Kubernetes (CK) is tightly synchronized to the 
 
 ### Infrastructure flavors
 
-| **Flavor** | **CPU** | **RAM** | **DISK** |
-| :--- | :--- | :--- | :--- |
-| Juju-controller | 8 | 16GB | 500GB |
-| K8s-master | 8 | 16GB | 500GB |
-| K8s-worker | 32 | 64GB | 500GB |
+These are the minimum requirements for the deployment.
+---
+
+#### Basic Profile
+
+| **Flavor** | **CPU** | **RAM** | **DISK** | **NUMA** | **Hugepages** | **CPU Pinning**| **IPSec Acceleration** | **Crypto Acceleration** |
+| :--- | :---: | :---: | :---: | | :---: | | :---: | | :---: | | :---: | | ---: |
+| lma-node | 8 | 16GB | 500GB | - | - | - | - | - |
+| k8s-control-node | 8 | 16GB | 500GB | - | - | - | - | - |
+| K8s-worker | 32 | 64GB | 500GB | No | No | No | No | No |
+
+#### Network Intensive Profile
+
+| **Flavor** | **CPU** | **RAM** | **DISK** | **NUMA** | **Hugepages** | **CPU Pinning**| **IPSec Acceleration** | **Crypto Acceleration** |
+| :--- | :---: | :---: | :---: | | :---: | | :---: | | :---: | | :---: | | ---: |
+| lma-node | 8 | 16GB | 500GB | - | - | - | - | - |
+| k8s-control-node | 8 | 16GB | 500GB | - | - | - | - | - |
+| K8s-worker | 32 | 64GB | 500GB | Yes | Yes | Yes | Optional | Optional |
 
 ### Infrastructure roles
 
@@ -122,6 +135,13 @@ Container runtime code has been moved out of the kubernetes-worker charm, and in
 ### Horizontal Scaling
 
 Charmed Kubernetes supports horizontal autoscaling with [OpenStack integrator](https://ubuntu.com/kubernetes/docs/openstack-integration).
+
+### Kubelet Plugins
+
+To satisfy requirements, the following Kubelet plugins will be enabled:
++ CPU Manager
++ Device Plugin
++ Topology Manager
 
 ### Ingress
 
