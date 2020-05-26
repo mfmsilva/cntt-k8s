@@ -59,7 +59,7 @@ These are the minimum requirements for the deployment.
 #### Basic Profile
 
 | **Flavor** | **CPU** | **RAM** | **DISK** | **NUMA** | **Hugepages** | **CPU Pinning**| **IPSec Acceleration** | **Crypto Acceleration** |
-| :--- | :---: | :---: | :---: | | :---: | | :---: | | :---: | | :---: | | ---: |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | ---: |
 | lma-node | 8 | 16GB | 500GB | - | - | - | - | - |
 | k8s-control-node | 8 | 16GB | 500GB | - | - | - | - | - |
 | K8s-worker | 32 | 64GB | 500GB | No | No | No | No | No |
@@ -67,7 +67,7 @@ These are the minimum requirements for the deployment.
 #### Network Intensive Profile
 
 | **Flavor** | **CPU** | **RAM** | **DISK** | **NUMA** | **Hugepages** | **CPU Pinning**| **IPSec Acceleration** | **Crypto Acceleration** |
-| :--- | :---: | :---: | :---: | | :---: | | :---: | | :---: | | :---: | | ---: |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | ---: |
 | lma-node | 8 | 16GB | 500GB | - | - | - | - | - |
 | k8s-control-node | 8 | 16GB | 500GB | - | - | - | - | - |
 | K8s-worker | 32 | 64GB | 500GB | Yes | Yes | Yes | Optional | Optional |
